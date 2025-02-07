@@ -39,10 +39,11 @@ jobs:
           mkdir -p aws-provider
           cp -r aws-provider-source/website/docs/* aws-provider/
 
-      # - name: Delete Source Repositories Folders # Added step
-      #   run: |
-      #     rm -rf terraform-source
-      #     rm -rf aws-provider-source
+      - name: Clean up
+        run: |
+          rm -rf terraform-source
+          rm -rf aws-provider-source
+          rm -rf aws-provider/cdktf
 
       - name: Check for changes
         id: check_changes
